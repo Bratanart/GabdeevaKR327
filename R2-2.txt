@@ -1,0 +1,33 @@
+en
+conf t
+host R1
+
+int f0/0
+ip add 192.168.2.1 255.255.255.0
+no sh
+exit
+
+int s0/3/0
+ip add 195.65.24.65 255.255.255.252
+no sh
+exit
+
+int s0/3/1
+ip add 81.30.199.6 255.255.255.252
+no sh
+exit
+exit
+
+
+
+conf t
+router rip
+v 2
+no au
+exit
+router rip 
+network 192.168.2.0
+network 81.30.199.4
+network 195.65.24.64
+exit
+exit
